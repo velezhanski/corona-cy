@@ -1,0 +1,54 @@
+{
+  "name": "bridge",
+  "version": "0.0.1",
+  "private": true,
+  "description": "This is a service that will make deliveries actually enjoyable",
+  "main": "src/app.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/velezhanski/bridge.git"
+  },
+  "author": "Alex Filipenko",
+  "license": "ISC",
+  "scripts": {
+    "dev": "node server.js",
+    "postinstall": "npm run build",
+    "prestart": "npm run build",
+    "build": "tsc",
+    "heroku-postbuild": "npm run build",
+    "start": "nodemon",
+    "inspect": "nodemon --inspect src/app.ts",
+    "test": "jest",
+    "lint": "npm run lint:js ",
+    "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
+    "lint:js": "npm run lint:eslint src/",
+    "lint:fix": "npm run lint:js -- --fix"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2",
+    "telegraf": "^3.38.0",
+    "telegraf-inline-menu": "^5.3.0",
+    "typedi": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.0",
+    "ts-node": "^9.0.0",
+    "tslint": "^5.20.1",
+    "typescript": "^4.0.3"
+  }
+}
