@@ -15,6 +15,7 @@ export default class TelegramBotService {
 
     const bot = new Telegraf(process.env.BOT_TOKEN)
     bot.start((ctx) => {
+      ctx.reply(`Hey!\nWelcome to the bot, I will be sending you Covid data related to Cyprus, everyday at 9:00\n Here is your first update.`)
       ctx.reply(`New Cases: ${casesToday}\nTotal Cases: ${newData.Confirmed}`)
       this.sendData(ctx)
     })
