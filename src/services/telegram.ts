@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import schedule from 'node-schedule';
 
 export default class TelegramBotService {
-  
+
   public async LaunchBotService(app) {
     let covidData = []
     covidData = await fetch('https://api.covid19api.com/total/country/cyprus')
@@ -22,12 +22,12 @@ export default class TelegramBotService {
   }
 
   public async sendData(ctx) {
-    await schedule.scheduleJob('30 * * * * *', async function(){
+    await schedule.scheduleJob('* * 9 * * *', async function(){
       let covidData = []
       covidData = await fetch('https://api.covid19api.com/total/country/cyprus')
         .then(response => response.json())
         .then(data => {return data});
-  
+
       var casesToday = covidData[covidData.length - 1].Confirmed - covidData[covidData.length - 2].Confirmed
       var newData = covidData[covidData.length - 1]
 
