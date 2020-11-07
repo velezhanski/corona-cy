@@ -22,7 +22,7 @@ export default class TelegramBotService {
   }
 
   public async sendData(ctx) {
-    await schedule.scheduleJob('* 10 * * * *', async function(){
+    await schedule.scheduleJob('55 * * * *', async function(){
       let covidData = []
       covidData = await fetch('https://api.covid19api.com/total/country/cyprus')
         .then(response => response.json())
