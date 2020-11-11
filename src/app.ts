@@ -13,6 +13,9 @@ async function startServer() {
 
   app.listen(config.port, () => { 
     console.log(`Server running on port ${config.port}`);
+    
+    const telegramBotServiceInstance = Container.get(TelegramBotService);
+    telegramBotServiceInstance.LaunchBotService(app);
   });
 
   const users = []
@@ -32,9 +35,6 @@ async function startServer() {
       res.status(500).send()
     }
   })
-
-  const telegramBotServiceInstance = Container.get(TelegramBotService);
-  telegramBotServiceInstance.LaunchBotService(app);
 }
 
 startServer();
